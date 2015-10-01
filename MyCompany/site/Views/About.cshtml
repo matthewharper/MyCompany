@@ -2,6 +2,16 @@
     
 }
 
+<script>
+        $(document).ready(function () {
+            if ($('html').hasClass('desktop')) {
+                new WOW().init();
+                $('#stuck_container').TMStickUp({
+                })
+            }
+        });
+</script>
+
 <!--========================================================
                           CONTENT
 =========================================================-->
@@ -207,7 +217,7 @@
                     <h2 class="header_3 text_7 color_6">Testimonials</h2>
 
                     <div class="box_9">
-                        <div class="put-left"><img src="images/index-1_img01.jpg" alt="Image 1" /></div>
+                        <div class="put-left"><img src="/images/index-1_img01.jpg" alt="Image 1" /></div>
                         <p class="caption color_10">
                             Praesent vestibulum molestie lacus aenean nony drerit mauris phasellus porta. Fusce suscipit
                             varius

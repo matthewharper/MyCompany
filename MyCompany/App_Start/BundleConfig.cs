@@ -60,6 +60,7 @@ namespace MyCompany
                       "~/site/css/grid.css",
                       "~/site/css/camera.css",
                       "~/site/css/contact-form.css",
+                      "~/site/css/animate.css",
                       "~/site/css/style.css"));
 
         }

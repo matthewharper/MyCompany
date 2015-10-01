@@ -285,6 +285,7 @@
     <Content Include="site\Views\Contact.cshtml" />
     <Content Include="site\Views\About.cshtml" />
     <Content Include="site\Views\News.cshtml" />
+    <Content Include="site\Views\Privacy.cshtml" />
     <None Include="_references.js" />
   </ItemGroup>
   <ItemGroup>

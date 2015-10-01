@@ -1,6 +1,16 @@
-﻿@{
+﻿@inherits System.Web.Mvc.WebViewPage
+@{
   
 }
+
+<script>
+    $(document).ready(function () {
+        if ($('html').hasClass('desktop')) {
+            new WOW().init();
+            $('#stuck_container').TMStickUp({})
+        }
+    });
+</script>
 
 <!--========================================================
                           CONTENT
@@ -186,3 +196,5 @@
         </div>
     </div>
 </section>
+
+

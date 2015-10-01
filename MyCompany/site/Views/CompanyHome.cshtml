@@ -2,6 +2,13 @@
     @{
 
     }
+<script>
+    $(document).ready(function () {
+        if ($('html').hasClass('desktop')) {
+            new WOW().init();
+        }
+    });
+</script>
 <!--========================================================
                           CONTENT
 =========================================================-->
@@ -55,7 +62,7 @@
             </div>
         </div>
     </div>
-    101
+    
     <div class="bg_2">
         <div class="container">
             <div class="row">

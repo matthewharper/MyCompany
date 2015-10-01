@@ -27,5 +27,11 @@ namespace MyCompany.Controllers
         {
             return View("News");
         }
+
+        // GET: Company/Privacy
+        public ActionResult Privacy()
+        {
+            return View("Privacy");
+        }
     }
 }

@@ -5,25 +5,25 @@ function include(url){
 
 /* cookie.JS
 ========================================================*/
-include('js/jquery.cookie.js');
+include('/js/jquery.cookie.js');
 
 
 /* DEVICE.JS
 ========================================================*/
-include('js/device.min.js');
+include('/js/device.min.js');
 
 /* Stick up menu
 ========================================================*/
-include('js/tmstickup.js');
+include('/js/tmstickup.js');
 
 /* Easing library
 ========================================================*/
-include('js/jquery.easing.1.3.js');
+include('/js/jquery.easing.1.3.js');
 
 
 /* ToTop
 ========================================================*/
-include('js/jquery.ui.totop.js');
+include('/js/jquery.ui.totop.js');
 $(function () {   
   $().UItoTop({ easingType: 'easeOutQuart' });
 });
@@ -32,8 +32,8 @@ $(function () {
 
 /* DEVICE.JS AND SMOOTH SCROLLIG
 ========================================================*/
-include('js/jquery.mousewheel.min.js');
-include('js/jquery.simplr.smoothscroll.min.js');
+include('/js/jquery.mousewheel.min.js');
+include('/js/jquery.simplr.smoothscroll.min.js');
 $(function () { 
   if ($('html').hasClass('desktop')) {
       $.srSmoothscroll({
@@ -54,8 +54,8 @@ $(document).ready(function() {
 
 /* Superfish menu
 ========================================================*/
-include('js/superfish.js');
-include('js/jquery.mobilemenu.js');
+include('/js/superfish.js');
+include('/js/jquery.mobilemenu.js');
 
 
 /* Orientation tablet fix
