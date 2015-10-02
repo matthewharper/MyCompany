@@ -10,7 +10,7 @@ namespace MyCompany.Controllers
             return View("CompanyHome");
         }
 
-        // GET: Company/About
+        // GET: Company/About 
         public ActionResult About()
         {
             return View("About");
