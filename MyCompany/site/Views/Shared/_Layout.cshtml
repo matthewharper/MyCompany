@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
-<html lang="en" ng-app="corpSite" >
+<html lang="en" ng-app="corpSiteApp" >
 <head>
-    <title ng-controller="navSettings">{{mattTitle}}</title>
+    <title>{{pageTitle}}</title>
     <meta charset="utf-8">
     <meta name="format-detection" content="telephone=no" />
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
@@ -43,37 +43,44 @@
                                 <h1>
                                     <a href="./">
                                         <span class="text_1">
-                                            <span class="color_6">S</span>
-                                            <span class="color_2">o</span>
-                                            <span class="color_5">f</span>
+                                            <span class="color_6">L</span>
+                                            <span class="color_2">i</span>
+                                            <span class="color_5">s</span>
                                             <span class="color_1">t</span>
+                                            <span class="color_6">e</span>
+                                            <span class="color_2">n</span>
                                         </span>
-                                        <span class="text_2 color_6">Ware</span>
+                                        <span class="text_2 color_6">FIRST</span>
                                     </a>
                                 </h1>
                             </div>
 
-                            <nav>
+                            @{//mjh: Clean this up. ng-attr would be better so class attr is never added to the DOM if no value, but it only takes
+                              //        a boolean to determine whether or not to render.  Fundamental flaw in my understanding.
+
+                            }
+                            <nav ng-controller="navSettingsCtrl">
                                 <ul class="sf-menu">
-                                    <li class="current"><a href="/Company">Home</a></li>
-                                    <li><a href="/Company/About">About </a></li>
+                                    <li class="{{companyHome}}"><a href="/Company">Home</a></li>
+                                    
                                     <li>
-                                        <a class="fa fa-caret-down" href="index-2.html">Products</a>
+                                        <a class="fa fa-caret-down" href="index-2.html">Example Work</a>
                                         <ul>
-                                            <li><a href="#">Lorem ipsum dolor</a></li>
-                                            <li><a href="#">Sit amet conse</a></li>
+                                            <li><a href="#">ASP.NET / MVC</a></li>
+                                            <li><a href="#">AngularJS</a></li>
                                             <li>
-                                                <a class="fa fa-caret-down" href="#">Ctetur adipisicing </a>
+                                                <a class="fa fa-caret-down" href="#">Past Projects </a>
                                                 <ul>
-                                                    <li><a href="#">Elit sed do </a></li>
-                                                    <li><a href="#">Eiusmod tempor </a></li>
-                                                    <li><a href="#">Incididunt ut</a></li>
+                                                    <li><a href="#">Project 1 </a></li>
+                                                    <li><a href="#">Project 2 </a></li>
+                                                    <li><a href="#">Project 3</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><a href="/Company/News">News</a></li>
-                                    <li><a href="/Company/Contact">Contact</a></li>
+                                    <li class="{{news}}"><a href="/Company/News">News</a></li>
+                                    <li class="{{about}}"><a href="/Company/About">About </a></li>
+                                    <li class="{{contact}}"><a href="/Company/Contact">Contact</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -98,35 +105,24 @@
                         <div class="grid_3 wow fadeInLeft" data-wow-delay="0.2s">
                             <h2 class="header_5 text_3 color_6">Company</h2>
                             <ul class="list">
-                                <li><a href="#">Lorem ipsum dolor </a></li>
-                                <li><a href="#">Ctetur adipisicing</a></li>
-                                <li><a href="#">Do eiusmod tempor</a></li>
-                                <li><a href="#">Incididunt ut labore</a></li>
-                                <li><a href="#">Et dolore magna</a></li>
-                                <li><a href="#">Minim veniam</a></li>
+                                <li><a href="/Company/News"</a>News</li>
+                                <li><a href="/Company/About">About </a></li>
+                                <li><a href="/Comapny/Contact">Contact</a></li>
                             </ul>
                         </div>
                         <div class="grid_3 wow fadeInLeft" data-wow-delay="0.4s">
-                            <h2 class="header_5 text_3 color_6">Products</h2>
+                            <h2 class="header_5 text_3 color_6">Example Work</h2>
                             <ul class="list">
-                                <li><a href="#">Ctetur adipisicing </a></li>
-                                <li><a href="#">Do eiusmod tempor</a></li>
-                                <li><a href="#">Incididunt ut labore</a></li>
-                                <li><a href="#">Et dolore magna </a></li>
-                                <li><a href="#">Minim veniam</a></li>
-                                <li><a href="#">Quis nostrud set </a></li>
-                                <li><a href="#">Ullamco laboris nis</a></li>
+                                <li><a href="#">ASP.NET / MVC </a></li>
+                                <li><a href="#">Angular</a></li>
+                                <li><a href="#">Past Projects</a></li>
                             </ul>
                         </div>
                         <div class="grid_3 wow fadeInRight" data-wow-delay="0.6s">
-                            <h2 class="header_5 text_3 color_6">Partnerships</h2>
+                            <h2 class="header_5 text_3 color_6">Clients and Partners</h2>
                             <ul class="list">
                                 <li><a href="#">Do eiusmod tempor</a></li>
                                 <li><a href="#">Incididunt ut labore </a></li>
-                                <li><a href="#">Et dolore magna</a></li>
-                                <li><a href="#">Minim veniam</a></li>
-                                <li><a href="#">Quis nostrud set</a></li>
-                                <li><a href="#">Ullamco laboris nis</a></li>
                             </ul>
                         </div>
                         <div class="grid_3 wow fadeInRight" data-wow-delay="0.8s">
@@ -153,10 +149,10 @@
         </footer>
     </div>
 
-
-    @*<script src="js/script.js"></script>*@
-    <script src="/Scripts/angular.js"></script>
     @Scripts.Render("~/bundles/script")
+    <script src="/Scripts/angular.js"></script>
+    <script src="/Scripts/angular-route.js"></script>
     <script src="/MyJs/app.js"></script>
+    <script src="/MyJs/controllers.js"></script>
 </body>
 </html>

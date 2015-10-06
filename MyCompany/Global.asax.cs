@@ -19,6 +19,7 @@ namespace MyCompany
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+          //  RouteDebug.RouteDebugger.RewriteRoutesForTesting(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
         }

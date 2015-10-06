@@ -4,6 +4,11 @@ namespace MyCompany.Controllers
 {
     public class CompanyController : Controller
     {
+
+        //public CompanyController()
+        //{
+        //}
+
         // GET: Company
         public ActionResult Index()
         {
