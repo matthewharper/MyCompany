@@ -57,6 +57,7 @@ namespace MyCompany.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            Session["salt"] = "salt";
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -68,6 +69,7 @@ namespace MyCompany.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
+            Session["salt"] = "salt";
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -163,7 +165,7 @@ namespace MyCompany.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Secure");
                 }
                 AddErrors(result);
             }
@@ -278,6 +280,7 @@ namespace MyCompany.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult ExternalLogin(string provider, string returnUrl)
         {
+            Session["salt"] = "salt";
             // Request a redirect to the external login provider
             return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
         }
@@ -322,6 +325,7 @@ namespace MyCompany.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
         {
+            Session["salt"] = "salt";
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
             if (loginInfo == null)
             {
@@ -392,7 +396,7 @@ namespace MyCompany.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Secure");
         }
 
         //
@@ -449,7 +453,7 @@ namespace MyCompany.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Secure");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult

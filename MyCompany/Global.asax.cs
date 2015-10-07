@@ -22,6 +22,9 @@ namespace MyCompany
           //  RouteDebug.RouteDebugger.RewriteRoutesForTesting(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
+           
         }
+
+        
     }
 }

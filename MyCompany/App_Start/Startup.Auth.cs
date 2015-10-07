@@ -63,11 +63,11 @@ namespace MyCompany
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "578540510963-68julpc52309qhva0057sud7ctde63ie.apps.googleusercontent.com",
+                ClientSecret = "bA4x2EM31Ln_DR5aiFube1IK"
+            });
         }
     }
 }

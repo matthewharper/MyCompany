@@ -18,8 +18,6 @@ namespace MyCompany
                 defaults: new { controller = "Company", action = "Index", id = UrlParameter.Optional },
                 namespaces: new[] { "MyCompany.Controllers" }
             );
-
-
         }
     }
 }

@@ -27,8 +27,17 @@ namespace MyCompany
     {
         public Task SendAsync(IdentityMessage message)
         {
-            // Plug in your SMS service here to send a text message.
+            // ASPSMS Begin 
+            var soapSms = new ASPSMSX2.ASPSMSX2SoapClient("ASPSMSX2Soap");
+            soapSms.SendSimpleTextSMS(
+              System.Configuration.ConfigurationManager.AppSettings["SMSAccountIdentification"],
+              System.Configuration.ConfigurationManager.AppSettings["SMSAccountPassword"],
+              message.Destination,
+              System.Configuration.ConfigurationManager.AppSettings["SMSAccountFrom"],
+              message.Body);
+            soapSms.Close();
             return Task.FromResult(0);
+            // ASPSMS End
         }
     }
 
