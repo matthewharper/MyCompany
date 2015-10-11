@@ -11,6 +11,7 @@ namespace MyCompany
 
 
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.IgnoreRoute("{controller}/{resource}.ashx/{*pathInfo}");
 
             routes.MapRoute(
                 name: "Default",

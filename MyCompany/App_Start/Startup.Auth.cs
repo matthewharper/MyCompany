@@ -12,11 +12,15 @@ namespace MyCompany
 {
     public partial class Startup
     {
+        //mjh:  Modified so MVC Provider will also update forums (YAF) so we can use Single Sign On.
+        //      Basically, added YAFNET_Authentication Cookie.
+        // For more information on configuring authenticationwith YAF
+        //      http://yetanotherforum.net/forum/posts/t17021-Using-ASP-NET-IDENTITY-OWIN--MVC-5--With-YAF--As-part-of-your-site
 
-        // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
+
         public void ConfigureAuth(IAppBuilder app)
         {
-            
+
             //app.
 
             // Configure the db context, user manager and signin manager to use a single instance per request
@@ -29,8 +33,9 @@ namespace MyCompany
             // Configure the sign in cookie
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
+                CookieName = ".YAFNET_Authentication",
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                LoginPath = new PathString("/Account/Login"),
+                LoginPath = new PathString("/Secure/SecureIndex"),
                 Provider = new CookieAuthenticationProvider
                 {
                     // Enables the application to validate the security stamp when the user logs in.
@@ -69,5 +74,7 @@ namespace MyCompany
                 ClientSecret = "bA4x2EM31Ln_DR5aiFube1IK"
             });
         }
+
+
     }
 }
