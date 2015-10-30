@@ -11,7 +11,8 @@ namespace MyCompany
     {
         void Application_Start(object sender, EventArgs e)
         {
-            //mjh
+            //mjh -- Custom view engine is required to move default view locations within the site structure.
+            //      MVC doesn't have to look in the default /view folders, etc.
             ViewEngines.Engines.Clear();
             ViewEngines.Engines.Add(new CompanyViewEngine());
 
@@ -19,7 +20,10 @@ namespace MyCompany
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-          //  RouteDebug.RouteDebugger.RewriteRoutesForTesting(RouteTable.Routes);
+            
+            //mjh -- Uncomment the line below to debug your MVC routing.  Downloaded this tool from a developer site.
+            //       I forgot where, or I would have given him props here.
+            //RouteDebug.RouteDebugger.RewriteRoutesForTesting(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
            

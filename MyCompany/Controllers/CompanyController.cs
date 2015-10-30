@@ -38,5 +38,11 @@ namespace MyCompany.Controllers
         {
             return View("Privacy");
         }
+
+        // GET: Company/Forum
+        public ActionResult Forum()
+        {
+            return View("Forum");
+        }
     }
 }

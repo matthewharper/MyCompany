@@ -4,5 +4,6 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <YAF:Forum runat="server" ID="forum" BoardID="1" />
+    rrr
+    <YAF:Forum runat="server" ID="forum" BoardID="1" />qqq
 </asp:Content>

@@ -58,7 +58,7 @@ namespace MyCompany.Controllers
         }
 
         #region Controller Actions
-        
+         
         //
         // GET: /Account/Login
         [AllowAnonymous]
