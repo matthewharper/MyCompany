@@ -172,8 +172,6 @@ namespace MyCompany.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    //mjh -- Persist the user in the YAF forums as well.
-                    CreateYAFUser(user.UserName, model.Password, model.Email);
                     return RedirectToAction("Index", "Secure");
                 }
                 AddErrors(result);
@@ -388,7 +386,6 @@ namespace MyCompany.Controllers
                     if (result.Succeeded)
                     {
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                        CreateYAFUser(user.UserName, user.PasswordHash, model.Email);
                         return RedirectToLocal(returnUrl);
                     }
                 }
@@ -439,46 +436,7 @@ namespace MyCompany.Controllers
             base.Dispose(disposing);
         }
 
-        #region YAF User Sync with MVC Membership
-
-        private static void CreateYAFUser(string sUserName, string sPassword, string email)
-        {
-            if (!UserMembershipHelper.UserExists(sUserName, email))
-            {
-
-                YafMembershipProvider mb = (YafMembershipProvider)Membership.Providers["YafMembershipProvider"];
-                int? forumUserID = 0;
-
-                if (!mb.ValidateUser(sUserName, sPassword))
-                {
-                    MembershipCreateStatus status;
-                    MembershipUser forumUser = mb.CreateUser(sUserName, sUserName, sUserName, "question", "answer", true, null, out status);
-                    // create the user in the YAF DB as well as sync roles...
-                    forumUserID = RoleMembershipHelper.CreateForumUser(forumUser, 1);
-
-                    RoleMembershipHelper.SetupUserRoles(1, sUserName);
-                    RoleMembershipHelper.AddUserToRole(sUserName, "Registered");
-
-                    // create empty profile just so they have one
-                    YafUserProfile userProfile = YafUserProfile.GetProfile(sUserName);
-                    userProfile.Homepage = "fwd.com";
-
-                    // setup their inital profile information
-                    userProfile.Save();
-                }
-                else
-                {
-                    DataTable results = (DataTable)YAF.Classes.Data.LegacyDb.UserFind(1, false, sUserName, sUserName, sUserName, null, null);
-                    //DataTable results = YAF.Classes.Data.DB.UserFind(1, false, sUserName, sUserName);
-                    if (results.Rows.Count > 0)
-                    {
-                        forumUserID = (int)results.Rows[0]["UserID"];
-                    }
-                }
-            }
-        }
-
-        #endregion
+       
 
         #region Helpers
         // Used for XSRF protection when adding external logins
