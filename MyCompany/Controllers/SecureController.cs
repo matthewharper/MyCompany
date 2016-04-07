@@ -3,7 +3,7 @@
 namespace MyCompany.Controllers
 {
     
-    [RequireHttps]
+    //[RequireHttps]
     public class SecureController : Controller
     {
         // GET: Secure
