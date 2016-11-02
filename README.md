@@ -1,14 +1,17 @@
 # MyCompany
-Who needs programmers anymore?  Anyone can build a website!
 
-What I did here, I think, is legit.  I am not taking credit for the code Microsoft wrote.  I wanted to create the leanest MVC5
-project possible with a template that I bought from TemplateMonster.com.  I also wanted to be able to use Angular within the
-site.  I wanted to be in control of jQuery, bundling, oWin, etc, etc... I didn't want to start with MS starter site for MVC because they do all of the hard stuff for you.
- 
- Hindsight being 20/20, I should have just started out with an MVC template project in Visual Studio .NET.  It took me forever to get the nuget packages right.  But, now that I have done it, I'm giving back.
- 
- As of right now, this project has the minimal set of stuff required to have a decent looking MVC5 app that is Angular enabled.
- 
- Some of the nuget packages may be able to be removed.  This is what it took for me to get it working piece by piece.
- 
- If anyone can find anything else to strip out, I'd be grateful.  Thank you!
+This web app is basically a play area to throw together a bunch of technologies to see how nicely they played together.  Not to dive too deeply into any one of them.
+
+I wanted to understand better how to work with GitHub integration into Visual Studio and Git as well as Azure.  This website is actually published at http://ListenFirst.AzureWebsites.Net  While the site is out there, it is not live, or marketed or intended to be used.  I wanted to also test the Azure integration for publishing with with Visual Studio as well as all of Azure's offereings in the enterprise.
+
+The Angular and Jquery usage here is minimal, but they play nicely.
+
+The Angular and MS MVC stuff are kind of at odds with each other concpetually (especially Angular2), but I can make a case for for both Angular and MS MVC and don't think they are mutually exclusive.  The same for Node on the back end (though that is not in this project).
+
+If you care to download the source for this project, you will see that there are examples of Multi-Factor Authentication included with SMS Messaging using a Free texting service from India as well as 3rd party oAuth2 integration with FaceBook and Google.  I also integrated with the Identity Management provider that comes with ASPMembership.  You will have to open the code to see that and look in the around the "Secure" folder.  I was also going to stand up Identity Server with this one, but I think I will do that on something else.
+
+There will be no more work on this project, I need to finish my real corporate site, and I have lots of client work to do.
+
+Feel free to contact me with any questions.
+
+Thank you.
